@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block customcss %}
+  <title>トップページ</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .box {
+      width: 300px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .box img {
+      width: 100%;
+      height: auto;
+    }
+
+    .box-content {
+      padding: 10px;
+    }
+  </style>
+{% endblock customcss %}
+
+{% block header %}
+<nav class="navbar navbar-dark bg-dark text-light">
+    <h3>ニュース</h3>
+</nav>
+{% endblock header %}
+
+{% block content %}
+  <body>
+    <div class="container">
+        <div class="box">
+          <img src="https://placehold.jp/150x150.png" alt="サムネイル1">
+          <div class="box-content">
+            <h2>ボックス1</h2>
+            <p>ボックス1の説明やコンテンツ</p>
+          </div>
+        </div>
+    
+        <div class="box">
+          <img src="https://placehold.jp/150x150.png" alt="サムネイル2">
+          <div class="box-content">
+            <h2>ボックス2</h2>
+            <p>ボックス2の説明やコンテンツ</p>
+          </div>
+        </div>
+
+        <div class="box">
+            <img src="https://placehold.jp/150x150.png" alt="サムネイル2">
+            <div class="box-content">
+              <h2>ボックス3</h2>
+              <p>ボックス3の説明やコンテンツ</p>
+            </div>
+        </div>
+    
+        <!-- 他のボックスも同様に追加 -->
+    
+      </div>
+  </body>
+
+{% endblock content %}
