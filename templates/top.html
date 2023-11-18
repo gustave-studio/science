@@ -50,33 +50,15 @@
 {% block content %}
   <body>
     <div class="container">
-        <div class="box">
-          <img src="https://placehold.jp/150x150.png" alt="サムネイル1">
-          <div class="box-content">
-            <h2>ボックス1</h2>
-            <p>ボックス1の説明やコンテンツ</p>
-          </div>
-        </div>
-    
-        <div class="box">
-          <img src="https://placehold.jp/150x150.png" alt="サムネイル2">
-          <div class="box-content">
-            <h2>ボックス2</h2>
-            <p>ボックス2の説明やコンテンツ</p>
-          </div>
-        </div>
-
-        <div class="box">
-            <img src="https://placehold.jp/150x150.png" alt="サムネイル2">
+        {% for news in news_list %}
+          <div class="box">
+            <img src="{{ news.newsimage.url }}" alt="サムネイル1">
             <div class="box-content">
-              <h2>ボックス3</h2>
-              <p>ボックス3の説明やコンテンツ</p>
+              <h2>{{ news.title }}</h2>
+              <p>{{ news.content }}</p>
             </div>
-        </div>
-    
-        <!-- 他のボックスも同様に追加 -->
-    
+          </div>
+        {% endfor %}
       </div>
   </body>
-
 {% endblock content %}
