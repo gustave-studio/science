@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 def topfunc(request):
-  news_list = NewsModel.objects.order_by('-id')[:3]
+  news_list = NewsModel.objects.order_by('-id')[:4]
   return render(request, 'top.html', {'news_list': news_list})
 
 class NewsCreate(CreateView):
