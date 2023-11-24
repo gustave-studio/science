@@ -13,7 +13,7 @@
         <p><img src="{{ object.newsimage.url }}" width=300></p>
         <p>タイトル：{{ object.title }}</p>
         <p>投稿者：{{ object.author }}</p>
-        <p>{{ object.content }}</p>
+        <p>{{ object.content|safe }}</p>
     </div>
 </div>
 {% else %}
