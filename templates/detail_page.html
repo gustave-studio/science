@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <h3>detail page</h3>
+</div>
+{% endblock header %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <p><img src="{{ object.newsimage.url }}" width=300></p>
+        <p>タイトル：{{ object.title }}</p>
+        <p>投稿者：{{ object.author }}</p>
+        <p>{{ object.content }}</p>
+    </div>
+</div>
+{% else %}
+please login
+{% endif %}
+{% endblock content %}
