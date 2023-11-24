@@ -83,7 +83,7 @@
               </h2>
             </div>
             <div class="box-content">
-              <p>{{ news.content |slice:":70" }}{% if news.content|length > 70 %} ...{% endif %}</p>
+              <p>{{ news.content|safe|striptags|slice:":70" }}{% if news.content|length > 70 %} ...{% endif %}</p>
             </div>
           </div>
         {% endfor %}

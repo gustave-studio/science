@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news_app.apps.NewsAppConfig',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -111,3 +112,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 画像ファイルの設定
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media_url/'
+
+# summernoteの設定
+SUMMERNOTE_CONFIG = { 
+    'summernote': {
+        'width': '100%',
+        'height': '480',
+    }   
+}
+
+# bleachで判定するHTMLタグと属性の指定
+ALLOWED_TAGS = [ 
+    'a', 'div', 'p', 'span', 'img', 'em', 'i', 'li', 'ol', 'ul', 'strong', 'br',
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'table', 'tbody', 'thead', 'tr', 'td',
+    'abbr', 'acronym', 'b', 'blockquote', 'code', 'strike', 'u', 'sup', 'sub','font'
+]
+ATTRIBUTES = { 
+    '*': ['style', 'align', 'title', 'style' ],
+    'a': ['href', ],
+    'img': ['src', ],
+}
