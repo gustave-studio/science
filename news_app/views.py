@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import NewsModel
 from django.views.generic import CreateView
 from .forms import NewsForm
@@ -7,6 +7,10 @@ from .forms import NewsForm
 def topfunc(request):
   news_list = NewsModel.objects.order_by('-id')[:4]
   return render(request, 'top.html', {'news_list': news_list})
+
+def detail_page(request, pk):
+    object = get_object_or_404(NewsModel, pk=pk)
+    return render(request, 'detail_page.html', {'object':object})
 
 def create_news(request):
     if request.method == 'POST':
