@@ -23,3 +23,20 @@ def create_news(request):
 
     context = {'form': form}
     return render(request, 'create_news.html', context)
+
+def edit_news(request, pk):
+    instance = get_object_or_404(NewsModel, pk=pk)
+
+    if request.user.username != instance.author:
+        return redirect('top')
+
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('top')
+    else:
+        form = NewsForm(instance=instance)
+
+    context = {'form': form}
+    return render(request, 'edit_news.html', context)
