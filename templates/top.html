@@ -1,71 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+
+<title>トップページ</title>
 
 {% block customcss %}
-  <title>トップページ</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 20px;
-    }
-
-    .box {
-      width: calc(25% - 20px);
-      height: 300px;
-      margin: 10px;
-      border: 1px solid #ddd;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .box img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .box-title h2{
-      font-size: 20px;
-    }
-
-    .box-title {
-      height: 50px;
-      padding: 5px;
-      overflow: hidden; 
-    }
-
-    .box-content {
-      padding: 5px;
-      overflow: hidden; 
-      font-size: 16px;
-    }
-
-    @media (max-width: 1100px) {
-    .box {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  </style>
+  <link href="{% static 'top.css' %}" rel="stylesheet">
 {% endblock customcss %}
 
 {% block header %}
 <nav class="navbar navbar-dark bg-dark text-light">
-    <h3>ニュース</h3>
+  <h3>ニュース</h3>
 </nav>
 {% endblock header %}
 
