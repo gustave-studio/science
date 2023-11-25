@@ -16,6 +16,8 @@
 {% block content %}
   <body>
     <div class="container">
+        <h2>ニュース</h2>
+        <hr>
         {% for news in news_list %}
           <div class="box">
             <img src="{{ news.newsimage.url }}" alt="サムネイル1">
@@ -27,9 +29,20 @@
               </h2>
             </div>
             <div class="box-content">
-              <p>{{ news.content|safe|striptags|slice:":70" }}{% if news.content|length > 70 %} ...{% endif %}</p>
+              <p>{{ news.content|safe|striptags|slice:":100" }}{% if news.content|length > 100 %} ...{% endif %}</p>
             </div>
           </div>
+        {% endfor %}
+
+        <h2>おすすめ動画</h2>
+        <hr>
+        {% for video in videos_list %}
+        <div class="box">
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <br>
+          <iframe src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <p>{{ video.title }}</p>
+        </div>
         {% endfor %}
       </div>
   </body>

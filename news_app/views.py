@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import News
+from .models import News, RecommendedVideos
 from django.views.generic import CreateView
 from .forms import NewsForm
 
 # Create your views here.
 def topfunc(request):
   news_list = News.objects.order_by('-id')[:4]
-  return render(request, 'top.html', {'news_list': news_list})
+  videos_list = RecommendedVideos.objects.order_by('-id')[:4]
+  return render(request, 'top.html', {'news_list': news_list, 'videos_list': videos_list})
 
 def detail_page(request, pk):
     object = get_object_or_404(News, pk=pk)

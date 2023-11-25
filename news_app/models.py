@@ -7,3 +7,7 @@ class News(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     newsimage = models.ImageField(upload_to='')
+
+class RecommendedVideos(models.Model):
+    title = models.TextField()
+    url = models.TextField()

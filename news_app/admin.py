@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import News
+from .models import News, RecommendedVideos
 from django_summernote.admin import SummernoteModelAdmin
 
 class NewsAdmin(SummernoteModelAdmin):
@@ -7,3 +7,4 @@ class NewsAdmin(SummernoteModelAdmin):
 
 # Register your models here.
 admin.site.register(News, NewsAdmin)
+admin.site.register(RecommendedVideos)
