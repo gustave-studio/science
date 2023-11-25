@@ -1,4 +1,4 @@
-from .models import NewsModel
+from .models import News
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 from django.conf import settings
@@ -17,7 +17,7 @@ class HTMLField(forms.CharField):
 
 class NewsForm(forms.ModelForm):
     class Meta:
-        model = NewsModel
+        model = News
         fields = ('title', 'content', 'author', 'newsimage')
         labels = {'title':'タイトル', 'content':'投稿内容', 'author':'著者', 'newsimage':'表示画像'}
 
