@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link href="{% static 'detail_page.css' %}" rel="stylesheet">
+{% endblock customcss %}
 
 {% block header %}
-<div class="alert alert-primary" role="alert">
-    <h3>detail page</h3>
-</div>
+<nav class="navbar navbar-dark bg-dark text-light">
+  <h3>ニュース</h3>
+</nav>
 {% endblock header %}
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="container">
-    <div class="alert alert-success" role="alert">
-        <p><img src="{{ object.newsimage.url }}" width=300></p>
-        <p>タイトル：{{ object.title }}</p>
-        <p>投稿者：{{ object.author }}</p>
-        <p>{{ object.content|safe }}</p>
-    </div>
-</div>
+<main>
+  <article>
+    <h2>{{ object.title }}</h2>
+    <p>投稿者：{{ object.author }}</p>
+    <p>{{ object.content|safe }}</p>
+  </article>
+</main>
 {% else %}
 please login
 {% endif %}
+
+<footer>
+    <p>&copy; 2023 Gustave Studio</p>
+</footer>
 {% endblock content %}
