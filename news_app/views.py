@@ -16,10 +16,29 @@ def create_news(request):
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            new_news = form.save(commit=False)
+            new_news.author = request.user
+            new_news.save()
             return redirect('top')
     else:
         form = NewsForm()
 
     context = {'form': form}
     return render(request, 'create_news.html', context)
+
+def edit_news(request, pk):
+    instance = get_object_or_404(NewsModel, pk=pk)
+
+    if request.user != instance.author:
+        return redirect('top')
+
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('top')
+    else:
+        form = NewsForm(instance=instance)
+
+    context = {'form': form}
+    return render(request, 'edit_news.html', context)
