@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import NewsModel
+from .models import News, RecommendedVideos
 from django_summernote.admin import SummernoteModelAdmin
 
-class NewsModelAdmin(SummernoteModelAdmin):
+class NewsAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 # Register your models here.
-admin.site.register(NewsModel, NewsModelAdmin)
+admin.site.register(News, NewsAdmin)
+admin.site.register(RecommendedVideos)

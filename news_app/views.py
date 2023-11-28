@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import NewsModel
+from .models import News, RecommendedVideos
 from django.views.generic import CreateView
 from .forms import NewsForm
 
 # Create your views here.
 def topfunc(request):
-  news_list = NewsModel.objects.order_by('-id')[:4]
-  return render(request, 'top.html', {'news_list': news_list})
+  news_list = News.objects.order_by('-id')[:4]
+  videos_list = RecommendedVideos.objects.order_by('-id')[:4]
+  return render(request, 'top.html', {'news_list': news_list, 'videos_list': videos_list})
 
 def detail_page(request, pk):
-    object = get_object_or_404(NewsModel, pk=pk)
+    object = get_object_or_404(News, pk=pk)
     return render(request, 'detail_page.html', {'object':object})
 
 def create_news(request):
@@ -27,7 +28,7 @@ def create_news(request):
     return render(request, 'create_news.html', context)
 
 def edit_news(request, pk):
-    instance = get_object_or_404(NewsModel, pk=pk)
+    instance = get_object_or_404(News, pk=pk)
 
     if request.user != instance.author:
         return redirect('top')
