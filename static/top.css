@@ -19,10 +19,10 @@ header {
 
 .box {
     width: 48%;
-    margin-bottom: 20px;
+    height: 98%;
     box-sizing: border-box;
-    padding: 0 10px;
-    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
 }
 
 h2 {
@@ -37,9 +37,9 @@ hr {
 
 .box img {
   width: 100%;
-  height: 50%;
+  height: 200px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
 }
 
 .box iframe {
@@ -56,7 +56,6 @@ hr {
 .box-title {
   height: 50px;
   padding: 5px;
-  margin-bottom: 10px;
   word-wrap: break-word;
 }
 
@@ -72,18 +71,27 @@ hr {
       font-size: 16px;
     }
     .box-content {
-      display: none; /* .box-content を非表示にする */
+      font-size: 12px;
     }
+    .box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+  }
     .box iframe {
         width: 100%;
-        height: 100px;
+        height: 100%;
         object-fit: cover;
-        object-position: center top;
+        object-position: center;
     }
 }
 
 @media (max-width: 300px) {
     .box {
       width: 100%;
+    }
+    .box-content {
+      display: none;
     }
 }

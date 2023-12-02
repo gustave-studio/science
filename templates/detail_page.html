@@ -5,12 +5,6 @@
   <link href="{% static 'detail_page.css' %}" rel="stylesheet">
 {% endblock customcss %}
 
-{% block header %}
-<nav class="navbar navbar-dark bg-dark text-light">
-  <h3>ニュース</h3>
-</nav>
-{% endblock header %}
-
 {% block content %}
 {% if user.is_authenticated %}
 <main>
