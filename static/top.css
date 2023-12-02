@@ -19,10 +19,8 @@ header {
 
 .box {
     width: 48%;
-    margin-bottom: 20px;
+    height: 98%;
     box-sizing: border-box;
-    padding: 0 10px;
-    margin: 10px auto;
 }
 
 h2 {
@@ -56,7 +54,6 @@ hr {
 .box-title {
   height: 50px;
   padding: 5px;
-  margin-bottom: 10px;
   word-wrap: break-word;
 }
 
