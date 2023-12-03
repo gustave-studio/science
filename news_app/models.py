@@ -8,6 +8,9 @@ class News(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     newsimage = models.ImageField(upload_to='')
 
-class RecommendedVideos(models.Model):
+    class Meta:
+        verbose_name_plural = 'News'
+
+class RecommendedVideo(models.Model):
     title = models.TextField()
     url = models.TextField()
