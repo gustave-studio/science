@@ -6,7 +6,7 @@
 {% endblock customcss %}
 
 {% block content %}
-{% if user.is_authenticated %}
+
 <main>
   <article>
     <h2>{{ object.title }}</h2>
@@ -14,9 +14,6 @@
     <p>{{ object.content|safe }}</p>
   </article>
 </main>
-{% else %}
-please login
-{% endif %}
 
 <footer>
     <p>&copy; 2023 Gustave Studio</p>
