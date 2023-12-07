@@ -40,3 +40,36 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.social-buttons {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  margin: 10px 10px 10px 0px;
+  width: 80px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.social-button.twitter { background-color: #1da1f2; }
+.social-button.facebook { background-color: #1877f2; }
+.social-button.line { background-color: #00b900; }
+
+.social-button i {
+  margin-right: 5px;
+}
+
+.social-button:hover {
+  background-color: #1da1f2 !important;
+  text-decoration: none !important;
