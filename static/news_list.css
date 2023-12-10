@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #f5f5f5;
+}
+
+.news-item {
+    display: flex;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+  
+.image-container {
+    flex: 0 0 100px;
+    margin-right: 20px;
+}
+  
+.news-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+  
+.text-container {
+    flex: 1;
+}
+  

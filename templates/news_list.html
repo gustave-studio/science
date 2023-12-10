@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+  <link href="{% static 'news_list.css' %}" rel="stylesheet">
+{% endblock customcss %}
+
+{% block content %}
+
+<div class="container">
+    <h2>ニュース記事一覧</h2>
+
+    {% for article in news %}
+        <div class="news-item">
+        {% if article.newsimage %}
+            <div class="image-container">
+            <img src="{{ article.newsimage.url }}" alt="{{ article.title }}" class="news-image">
+            </div>
+        {% endif %}
+        
+        <div class="text-container">
+            <a href="{% url 'detail_page' article.pk %}">
+                <h3>{{ article.title |slice:":20" }}{% if article.title|length > 20 %} ...{% endif %}</h3>
+            </a>
+            <p>{{ article.content|safe|striptags|slice:":100" }}{% if article.content|length > 100 %} ...{% endif %}</p>
+            <p>公開日: {{ article.pub_date }}</p>
+        </div>
+        </div>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if news.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ news.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ news.number }} of {{ news.paginator.num_pages }}.
+            </span>
+
+            {% if news.has_next %}
+                <a href="?page={{ news.next_page_number }}">next</a>
+                <a href="?page={{ news.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import News, RecommendedVideo
 from django.views.generic import CreateView
 from .forms import NewsForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def topfunc(request):
@@ -43,3 +44,17 @@ def edit_news(request, pk):
 
     context = {'form': form}
     return render(request, 'edit_news.html', context)
+
+def news_list(request):
+    news_list = News.objects.order_by('-id')
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(news_list, 10)
+    try:
+        news = paginator.page(page)
+    except PageNotAnInteger:
+        news = paginator.page(1)
+    except EmptyPage:
+        news = paginator.page(paginator.num_pages)
+    
+    return render(request, 'news_list.html', {'news': news})
