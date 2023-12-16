@@ -29,22 +29,31 @@
         </div>
     {% endfor %}
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if news.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ news.previous_page_number }}">previous</a>
-            {% endif %}
+    <div class="pagination-container"></div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if news.has_previous %}
+                    <a href="?page=1">&laquo; 最初へ</a>
+                    <a href="?page={{ news.previous_page_number }}">前へ</a>
+                {% endif %}
+        
+                {% for i in news.paginator.page_range %}
+                    {% if i == news.number %}
+                        <span class="current">
+                            {{ i }}
+                        </span>
+                    {% elif i > news.number|add:"-3" and i < news.number|add:"4" %}
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    {% endif %}
+                {% endfor %}
 
-            <span class="current">
-                Page {{ news.number }} of {{ news.paginator.num_pages }}.
+        
+                {% if news.has_next %}
+                    <a href="?page={{ news.next_page_number }}">次へ</a>
+                    <a href="?page={{ news.paginator.num_pages }}">最後へ &raquo;</a>
+                {% endif %}
             </span>
-
-            {% if news.has_next %}
-                <a href="?page={{ news.next_page_number }}">next</a>
-                <a href="?page={{ news.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+        </div>
     </div>
 </div>
 {% endblock %}
