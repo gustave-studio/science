@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+  <link href="{% static 'news_list.css' %}" rel="stylesheet">
+{% endblock customcss %}
+
+{% block content %}
+
+<div class="container">
+    <h2>ニュース記事一覧</h2>
+
+    {% for article in news %}
+        <div class="news-item">
+        {% if article.newsimage %}
+            <div class="image-container">
+            <img src="{{ article.newsimage.url }}" alt="{{ article.title }}" class="news-image">
+            </div>
+        {% endif %}
+        
+        <div class="text-container">
+            <a href="{% url 'detail_page' article.pk %}">
+                <h3>{{ article.title |slice:":20" }}{% if article.title|length > 20 %} ...{% endif %}</h3>
+            </a>
+            <p>{{ article.content|safe|striptags|slice:":100" }}{% if article.content|length > 100 %} ...{% endif %}</p>
+            <p>公開日: {{ article.pub_date }}</p>
+        </div>
+        </div>
+    {% endfor %}
+
+    <div class="pagination-container"></div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if news.has_previous %}
+                    <a href="?page=1">&laquo; 最初へ</a>
+                    <a href="?page={{ news.previous_page_number }}">前へ</a>
+                {% endif %}
+        
+                {% for i in news.paginator.page_range %}
+                    {% if i == news.number %}
+                        <span class="current">
+                            {{ i }}
+                        </span>
+                    {% elif i > news.number|add:"-3" and i < news.number|add:"4" %}
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    {% endif %}
+                {% endfor %}
+
+        
+                {% if news.has_next %}
+                    <a href="?page={{ news.next_page_number }}">次へ</a>
+                    <a href="?page={{ news.paginator.num_pages }}">最後へ &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock %}
