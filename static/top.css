@@ -67,6 +67,12 @@ hr {
 }
 
 .news-list-button-container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.news-list-button-container p {
+  width: 300px;
   text-align: center;
   margin: auto;
 }
