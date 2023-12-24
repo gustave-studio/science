@@ -12,10 +12,28 @@ header {
 }
 
 .container {
-  width: 650px;
+  width: 1100px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row;
+}
+
+.left-side {
+  background-color: blue;
+  color: #fff;
+  width: 20%;
+  float: left;
+}
+
+.right-side {
+  background-color: green;
+  color: #fff;
+  width: 20%;
+  float: right;
+}
+
+.main {
+  width: 60%;
+  float: left;
 }
 
 .box {
