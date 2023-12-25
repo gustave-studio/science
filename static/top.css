@@ -145,32 +145,8 @@ hr {
   object-position: center top;
 }
 
-@media (max-width: 760px) {
-  .box-title a {
-    font-size: 16px;
-  }
-  .box-content {
-    font-size: 12px;
-  }
-  .box img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-  }
-  .box iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-}
-
-@media (max-width: 300px) {
-  .box {
-    width: 100%;
-  }
-  .box-content {
+@media (max-width: 400px) {
+  .left-side, .right-side {
     display: none;
   }
 }
