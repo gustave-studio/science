@@ -145,8 +145,24 @@ hr {
   object-position: center top;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 750px) {
+  body {
+    width: 750px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
   .left-side, .right-side {
     display: none;
+  }
+
+  .container {
+    width: 750px;
+    flex-direction: column;
+  }
+
+  .main {
+    width: 100%;
   }
 }
