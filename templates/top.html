@@ -9,39 +9,63 @@
 
 {% block content %}
   <body>
-    <div class="container">
+    <div class="main-container">
+      <div class="left-side">
+        <p>left-side</p>
+      </div>
+      <div class="main">
         <h2>ニュース</h2>
         <hr>
         {% for news in news_list %}
-          <div class="box">
-            <img src="{{ news.newsimage.url }}" alt="サムネイル1">
-            <div class="box-title">
-              <h2>
-                <a href="{% url 'detail_page' news.pk %}">
-                  {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
-                </a>
-              </h2>
+          {% if forloop.first %}
+            <div class="box first-news-box">
+              <img src="{{ news.newsimage.url }}" alt="サムネイル1">
+              <div class="box-title">
+                <h2>
+                  <a href="{% url 'detail_page' news.pk %}">
+                    {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
+                  </a>
+                </h2>
+              </div>
+              <div class="box-content">
+                <p>{{ news.content|safe|striptags|slice:":100" }}{% if news.content|length > 100 %} ...{% endif %}</p>
+              </div>
             </div>
-            <div class="box-content">
-              <p>{{ news.content|safe|striptags|slice:":100" }}{% if news.content|length > 100 %} ...{% endif %}</p>
+          {% else %}
+            <div class="news-item">
+              <div class="image-container">
+                <img src="{{ news.newsimage.url }}" alt="サムネイル{{ forloop.counter }}">
+              </div>
+              <div class="text-container">
+                <h2>
+                  <a href="{% url 'detail_page' news.pk %}">
+                    {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
+                  </a>
+                </h2>
+                <p>{{ news.content|safe|striptags|slice:":100" }}{% if news.content|length > 100 %} ...{% endif %}</p>
+              </div>
             </div>
-          </div>
+          {% endif %}
         {% endfor %}
 
         <div class="news-list-button-container">
-          <a href="news_list" class="news-list-button">ニュース一覧へ</a>
+          <p><a href="news_list" class="news-list-button">ニュース一覧へ</a></p>
         </div>
 
         <h2>おすすめ動画</h2>
         <hr>
         {% for video in videos_list %}
-        <div class="box">
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <br>
-          <iframe src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <p>{{ video.title }}</p>
-        </div>
+          <div class="box">
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <br>
+            <iframe src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p>{{ video.title }}</p>
+          </div>
         {% endfor %}
       </div>
+      <div class="right-side">
+        <p>right-side</p>
+      </div>
+    </div>
   </body>
 {% endblock content %}
