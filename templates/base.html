@@ -21,7 +21,35 @@
 
   {% block content %}
   {% endblock content %}
+
+  <div class="ad-container" id="adContainer">
+    広告スペース
+  </div>
+
   <nav class="navbar navbar-dark bg-dark text-light">
     <p>フッター</p>
   </nav>
+
+  <script>
+    var adContainer = document.getElementById('adContainer');
+    var isVisible = false;
+
+    window.addEventListener('scroll', function () {
+      var scrollPosition = window.scrollY;
+      var windowHeight = window.innerHeight;
+      var documentHeight = document.documentElement.scrollHeight;
+
+      if (scrollPosition + windowHeight >= documentHeight - 100) {
+        if (isVisible) {
+          adContainer.style.display = 'none';
+          isVisible = false;
+        }
+      } else {
+        if (!isVisible) {
+          adContainer.style.display = 'block';
+          isVisible = true;
+        }
+      }
+    });
+  </script>
 </html>
