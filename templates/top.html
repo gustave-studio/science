@@ -29,7 +29,9 @@
                 </h2>
               </div>
               <div class="box-content">
-                <p>{{ news.content|safe|striptags|slice:":100" }}{% if news.content|length > 100 %} ...{% endif %}</p>
+                <div class="over-text">
+                  <p>{{ news.content|safe|striptags|slice:":300" }}{% if news.content|length > 300 %} ...{% endif %}</p>
+                </div>
               </div>
             </div>
           {% else %}
@@ -43,7 +45,9 @@
                     {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
                   </a>
                 </h2>
-                <p>{{ news.content|safe|striptags|slice:":100" }}{% if news.content|length > 100 %} ...{% endif %}</p>
+                <div class="over-text">
+                  <p>{{ news.content|safe|striptags|slice:":300" }}{% if news.content|length > 300 %} ...{% endif %}</p>
+                </div>
               </div>
             </div>
           {% endif %}
