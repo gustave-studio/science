@@ -18,6 +18,7 @@ from .settings_local import *
 
 ALLOWED_HOSTS = ALLOWED_HOSTS_LIST
 
+CSRF_TRUSTED_ORIGINS = ['https://hadronnews.com']
 
 # Application definition
 
