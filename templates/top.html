@@ -5,7 +5,6 @@
 
 {% block customcss %}
   <link href="{% static 'top.css' %}" rel="stylesheet">
-  <link href="{% static 'base.css' %}" rel="stylesheet">
 {% endblock customcss %}
 
 {% block content %}
@@ -28,7 +27,7 @@
               <div class="box-title">
                 <h2>
                   <a href="{% url 'detail_page' news.pk %}">
-                    {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
+                    {{ news.title |slice:":50" }}{% if news.title|length > 50 %} ...{% endif %}
                   </a>
                 </h2>
               </div>

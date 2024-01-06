@@ -24,7 +24,7 @@
                 <h3>{{ article.title |slice:":20" }}{% if article.title|length > 20 %} ...{% endif %}</h3>
             </a>
             <p>{{ article.content|safe|striptags|slice:":100" }}{% if article.content|length > 100 %} ...{% endif %}</p>
-            <p>公開日: {{ article.pub_date }}</p>
+            <!-- <p>公開日: {{ article.pub_date }}</p> -->
         </div>
         </div>
     {% endfor %}
