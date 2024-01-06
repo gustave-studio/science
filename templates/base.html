@@ -11,10 +11,14 @@
     {% block customcss %}
     {% endblock customcss %}
 
-    <title>Hello, world!</title>
+    <title>ハドロンニュース</title>
   </head>
   <nav class="navbar navbar-dark bg-dark text-light">
-    <h1>ニュース</h1>
+    <a href="{% url 'top' %}">
+      <h1>
+        ハドロンニュース
+      </h1>
+    </a>
   </nav>
   {% block header %}
   {% endblock header %}
@@ -28,7 +32,9 @@
   </div> -->
 
   <nav class="navbar navbar-dark bg-dark text-light">
-    <p>フッター</p>
+    <a href="{% url 'top' %}">
+      <p>ハドロンニュース</p>
+    </a>
   </nav>
 
   <!-- 自動でオーバーレイ広告を出す機能があるためそちらを使う。 -->
