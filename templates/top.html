@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<title>トップページ</title>
+{% block metatag %}
+  <meta property="og:url" content="https://hadronnews.com">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ハドロンニュース">
+  <meta property="og:description" content=”おもしろい科学情報をまとめてニュース配信しています。宇宙、物理、IT、SF小説、SF映画と手広く発信していきます。”>
+  <meta property="og:image" content="{% static 'hadronnews_ogp.png' %}" >
+  <meta name="twitter:card" content="summary" />
+{% endblock metatag %}
 
 {% block customcss %}
   <link href="{% static 'top.css' %}" rel="stylesheet">
