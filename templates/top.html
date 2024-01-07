@@ -5,7 +5,6 @@
 
 {% block customcss %}
   <link href="{% static 'top.css' %}" rel="stylesheet">
-  <link href="{% static 'base.css' %}" rel="stylesheet">
 {% endblock customcss %}
 
 {% block content %}
@@ -19,7 +18,7 @@
         </div>
       </div>
       <div class="main">
-        <h2>ニュース</h2>
+        <h2>最新ニュース</h2>
         <hr>
         {% for news in news_list %}
           {% if forloop.first %}
@@ -28,7 +27,7 @@
               <div class="box-title">
                 <h2>
                   <a href="{% url 'detail_page' news.pk %}">
-                    {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
+                    {{ news.title |slice:":50" }}{% if news.title|length > 50 %} ...{% endif %}
                   </a>
                 </h2>
               </div>
@@ -38,6 +37,7 @@
                 </div>
               </div>
             </div>
+            <hr>
           {% else %}
             <div class="news-item">
               <div class="image-container">
@@ -54,17 +54,18 @@
                 </div>
               </div>
             </div>
+            <hr>
           {% endif %}
         {% endfor %}
 
         <div class="news-list-button-container">
-          <p><a href="news_list" class="news-list-button">ニュース一覧へ</a></p>
+          <p><a href="news_list" class="news-list-button">ニュースをもっと見る</a></p>
         </div>
 
         <h2>おすすめ動画</h2>
         <hr>
         {% for video in videos_list %}
-          <div class="box">
+          <div class="youtube">
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <br>
             <iframe src="{{ video.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

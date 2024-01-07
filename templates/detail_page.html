@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block customcss %}
-  <link href="{% static 'detail_page.css' %}" rel="stylesheet">
+<link href="{% static 'detail_page.css' %}" rel="stylesheet">
 {% endblock customcss %}
 
 {% block content %}
@@ -12,32 +12,28 @@
     <h2>{{ object.title }}</h2>
     <p>投稿者：{{ object.author }}</p>
     <div class="social-buttons">
-      <a href="https://twiter.com/share?url={URL}" rel="nofollow noopener" target="_blank" class="social-button twitter">
-        Twitter
+      <a href="https://twitter.com/share?url=https://hadronnews.com/detail_page/{{ object.id }}" rel="nofollow noopener" target="_blank" class="social-button twitter">
+      Twitter(X)
       </a>
-      <a href="http://www.facebook.com/share.php?u={URL}" rel="nofollow noopener" target="_blank" class="social-button facebook">
+      <a href="http://www.facebook.com/share.php?u=https://hadronnews.com/{{ object.id }}" rel="nofollow noopener" target="_blank" class="social-button facebook">
         Facebook
       </a>
-      <a href="http://line.me/R/msg/text/?{URL}%0a{ページのタイトルなど表示したいテキスト}" target="_blank" rel="nofollow noopener" class="social-button line">
+      <a href="http://line.me/R/msg/text/?https://hadronnews.com%0a{{ object.title }}" target="_blank" rel="nofollow noopener" class="social-button line">
         Line
       </a>
     </div>
     <p>{{ object.content|safe }}</p>
     <div class="social-buttons">
-      <a href="https://twiter.com/share?url={URL}" rel="nofollow noopener" target="_blank" class="social-button twitter">
-        Twitter
+      <a href="https://twitter.com/share?url=https://hadronnews.com/detail_page/{{ object.id }}" rel="nofollow noopener" target="_blank" class="social-button twitter">
+        Twitter(X)
       </a>
-      <a href="http://www.facebook.com/share.php?u={URL}" rel="nofollow noopener" target="_blank" class="social-button facebook">
+      <a href="http://www.facebook.com/share.php?u=https://hadronnews.com/{{ object.id }}" rel="nofollow noopener" target="_blank" class="social-button facebook">
         Facebook
       </a>
-      <a href="http://line.me/R/msg/text/?{URL}%0a{ページのタイトルなど表示したいテキスト}" target="_blank" rel="nofollow noopener" class="social-button line">
+      <a href="http://line.me/R/msg/text/?https://hadronnews.com%0a{{ object.title }}" target="_blank" rel="nofollow noopener" class="social-button line">
         Line
       </a>
     </div>
   </article>
 </main>
-
-<footer>
-    <p>&copy; 2023 Gustave Studio</p>
-</footer>
 {% endblock content %}

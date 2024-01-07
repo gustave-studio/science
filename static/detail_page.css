@@ -23,7 +23,7 @@ article {
 }
 
 h2 {
-  color: #007bff;
+  color: #000;
 }
 
 p {
@@ -60,6 +60,11 @@ img {
   width: 80px;
   font-size: 12px;
   line-height: 1;
+}
+
+.social-button a, a:hover, a:visited {
+  color: #fff;
+  text-decoration: none;
 }
 
 .social-button.twitter { background-color: #1da1f2; }
