@@ -53,12 +53,9 @@
               <div class="text-container">
                 <h2>
                   <a href="{% url 'detail_page' news.pk %}">
-                    {{ news.title |slice:":20" }}{% if news.title|length > 20 %} ...{% endif %}
+                    {{ news.title |slice:":50" }}{% if news.title|length > 50 %} ...{% endif %}
                   </a>
                 </h2>
-                <div class="over-text">
-                  <p>{{ news.content|safe|striptags|slice:":300" }}{% if news.content|length > 300 %} ...{% endif %}</p>
-                </div>
               </div>
             </div>
             <hr>
