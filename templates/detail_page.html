@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block metatag %}
+  <meta property="og:url" content="https://hadronnews.com/detail_page/{{ object.id }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ object.title }}">
+  <meta property="og:description" content="{{ object.content |truncatechars:100}}">
+  <meta property="og:image" content="{{object.newsimage.url}}" >
+  <meta name="twitter:card" content="summary" />
+{% endblock metatag %}
+
 {% block customcss %}
-<link href="{% static 'detail_page.css' %}" rel="stylesheet">
+  <link href="{% static 'detail_page.css' %}" rel="stylesheet">
 {% endblock customcss %}
 
 {% block content %}
