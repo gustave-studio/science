@@ -62,6 +62,11 @@ img {
   line-height: 1;
 }
 
+.social-button a, a:hover, a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
 .social-button.twitter { background-color: #1da1f2; }
 .social-button.facebook { background-color: #1877f2; }
 .social-button.line { background-color: #00b900; }

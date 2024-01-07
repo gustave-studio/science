@@ -4,20 +4,24 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name=”description” content=”おもしろい科学情報をまとめてニュース配信しています。宇宙、物理、IT、SF小説、SF映画と手広く発信していきます。” />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link href="../static/base.css" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+
     {% block customcss %}
     {% endblock customcss %}
 
     <title>ハドロンニュース</title>
   </head>
-  <nav class="navbar navbar-dark bg-dark text-light">
+  <nav class="navbar-top">
     <a href="{% url 'top' %}">
-      おもしろ科学情報サイト
+      おもしろサイエンス
       <h1>
         ハドロンニュース
       </h1>
@@ -34,7 +38,7 @@
     広告スペース
   </div> -->
 
-  <nav class="navbar navbar-dark bg-dark text-light">
+  <nav class="navbar-bottom">
     <a href="{% url 'top' %}">
       <p>ハドロンニュース</p>
     </a>
