@@ -42,6 +42,9 @@
                 <div class="over-text">
                   <p>{{ news.content|safe|striptags|slice:":300" }}{% if news.content|length > 300 %} ...{% endif %}</p>
                 </div>
+                <div class="datetime-container">
+                  <p>投稿日: {{ news.created_at }} 更新日: {{ news.updated_at }}</p>
+                </div>
               </div>
             </div>
             <hr>
@@ -56,6 +59,9 @@
                     {{ news.title |slice:":50" }}{% if news.title|length > 50 %} ...{% endif %}
                   </a>
                 </h2>
+                <div class="datetime-container">
+                  <p>投稿日: {{ news.created_at }} 更新日: {{ news.updated_at }}</p>
+                </div>
               </div>
             </div>
             <hr>

@@ -137,9 +137,13 @@ hr {
 }
 
 .text-container {
-  display: table;
+  display: flex;
+  flex-direction: column;
 }
 
+.datetime-container {
+  margin-top: 10px;
+}
 
 .news-item h2 {
   margin: auto;
