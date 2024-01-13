@@ -54,11 +54,9 @@
                 <img src="{{ news.newsimage.url }}" alt="サムネイル{{ forloop.counter }}">
               </div>
               <div class="text-container">
-                <h2>
                   <a href="{% url 'detail_page' news.pk %}">
                     {{ news.title |slice:":50" }}{% if news.title|length > 50 %} ...{% endif %}
                   </a>
-                </h2>
                 <div class="datetime-container">
                   <p>投稿日: {{ news.created_at }} 更新日: {{ news.updated_at }}</p>
                 </div>

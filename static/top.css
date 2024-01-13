@@ -141,7 +141,12 @@ hr {
   flex-direction: column;
 }
 
+.news-item a {
+  font-size: 16px;
+}
+
 .datetime-container {
+  font-size: 12px;
   margin-top: 10px;
 }
 
@@ -165,7 +170,7 @@ hr {
 }
 
 .image-container img {
-  width: 100px;
+  width: 70px;
   height: auto;
   object-fit: cover;
 }
