@@ -61,11 +61,6 @@ h2 {
   color: #333333;
 }
 
-.first-news-box .box-title h2 {
-  font-size: 40px;
-  color: #000;
-}
-
 hr {
   width: 100%;
   border: 1px solid #666;
@@ -150,14 +145,6 @@ hr {
   margin-top: 10px;
 }
 
-.news-item h2 {
-  margin: auto;
-  color: #000;
-  font-size: 30px;
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .text-container {
   flex: 1;
   margin-left: 20px;
@@ -206,20 +193,6 @@ hr {
   .container {
     width: 95%;
     flex-direction: column;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  .first-news-box .box-title h2 {
-    font-size: 26px;
-    color: #000;
-  }
-
-  .news-item h2 {
-    font-size: 18px;
-    color: #000;
   }
 
   .box-content {

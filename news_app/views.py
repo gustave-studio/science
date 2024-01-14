@@ -7,6 +7,17 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 def topfunc(request):
   news_list = News.objects.order_by('-id')[:4]
+
+  for news in news_list:
+      display_created_at = news.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
+      display_updated_at = news.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
+      if display_created_at == display_updated_at:
+          news.display_name = '投稿日'
+          news.display_date = display_created_at
+      else:
+          news.display_name = '更新日'
+          news.display_date = display_updated_at
+
   videos_list = RecommendedVideo.objects.order_by('-id')[:4]
   return render(request, 'top.html', {'news_list': news_list, 'videos_list': videos_list})
 
