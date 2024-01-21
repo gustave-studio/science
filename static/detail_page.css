@@ -22,6 +22,12 @@ article {
   margin-bottom: 20px;
 }
 
+iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
 h2 {
   color: #000;
 }
