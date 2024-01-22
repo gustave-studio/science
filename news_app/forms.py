@@ -21,4 +21,4 @@ class NewsForm(forms.ModelForm):
         fields = ('title', 'content', 'author', 'newsimage')
         labels = {'title':'タイトル', 'content':'投稿内容', 'author':'著者', 'newsimage':'表示画像'}
 
-    content = HTMLField()
+        widgets = {'content': SummernoteWidget()}

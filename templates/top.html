@@ -44,7 +44,7 @@
               <div class="box-content">
                 <div class="over-text">
                   <p>
-                    {{ news.content|safe|striptags|slice:":150" }}{% if news.content|length > 150 %}
+                    {{ news.content|safe|striptags|slice:":120" }}{% if news.content|length > 120 %}
                     <a href="{% url 'detail_page' news.pk %}">
                       ...続きを読む
                     </a>
@@ -76,6 +76,12 @@
           <p><a href="news_list" class="news-list-button">ニュースをもっと見る</a></p>
         </div>
 
+        <div class="ad_for_sp">
+          <!-- admax -->
+            <script src="https://adm.shinobi.jp/s/355a671285f9db4819880e7a7f6fb7dc"></script>
+          <!-- admax -->
+        </div>
+
         <h2>おすすめ動画</h2>
         <hr>
         {% for video in videos_list %}
@@ -86,10 +92,6 @@
             <p>{{ video.title }}</p>
           </div>
         {% endfor %}
-
-        <!-- admax -->
-          <script src="https://adm.shinobi.jp/s/ce11bac3ee4128e9a02539db209b6b9b"></script>
-        <!-- admax -->
       </div>
       <div class="right-side">
         <div class="sidebar-ads">

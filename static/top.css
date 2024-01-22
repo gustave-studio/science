@@ -178,6 +178,12 @@ hr {
   height: 100%;
 }
 
+.ad_for_sp {
+  width: 100%;
+  margin-bottom: 50px;
+  /* display: none; */
+}
+
 @media (max-width: 800px) {
   body {
     width: 100%;
@@ -222,5 +228,10 @@ hr {
   .main {
     width: 90%;
     margin: auto;
+  }
+
+  .ad_for_sp {
+    width: 100%;
+    margin-bottom: 100px;
   }
 }

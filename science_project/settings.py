@@ -110,7 +110,7 @@ SUMMERNOTE_CONFIG = {
     'summernote': {
         'width': '100%',
         'height': '480',
-    }   
+    }
 }
 
 # bleachで判定するHTMLタグと属性の指定
