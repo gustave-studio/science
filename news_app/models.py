@@ -16,3 +16,7 @@ class News(models.Model):
 class RecommendedVideo(models.Model):
     title = models.TextField()
     url = models.TextField()
+
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+    introduction = models.TextField()
