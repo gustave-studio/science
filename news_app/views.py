@@ -34,7 +34,7 @@ def create_news(request):
             new_news.save()
             return redirect('top')
     else:
-        form = NewsForm()
+        form = NewsForm(initial={'author_display_name': request.user.get_full_name()})
 
     context = {'form': form}
     return render(request, 'create_news.html', context)
