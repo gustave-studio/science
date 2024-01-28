@@ -5,7 +5,7 @@
 <h2>ニュース作成</h2>
 <form method="POST" enctype="multipart/form-data">{% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="create">
+    <input type="submit" value="記事投稿">
 </form>
 {% else %}
 please login
