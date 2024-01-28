@@ -3,14 +3,16 @@ from .models import News, RecommendedVideo
 from django.views.generic import CreateView
 from .forms import NewsForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import pytz
 
 # Create your views here.
 def topfunc(request):
   news_list = News.objects.order_by('-id')[:4]
 
   for news in news_list:
-      display_created_at = news.created_at.strftime('%Y年%m月%d日 %H:%M:%S')
-      display_updated_at = news.updated_at.strftime('%Y年%m月%d日 %H:%M:%S')
+      jst = pytz.timezone('Asia/Tokyo')
+      display_created_at = news.created_at.astimezone(jst).strftime('%Y年%m月%d日 %H:%M:%S')
+      display_updated_at = news.updated_at.astimezone(jst).strftime('%Y年%m月%d日 %H:%M:%S')
       if display_created_at == display_updated_at:
           news.display_name = '投稿日'
           news.display_date = display_created_at
