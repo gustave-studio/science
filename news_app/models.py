@@ -6,6 +6,7 @@ class News(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author_display_name = models.CharField(max_length=50)
     newsimage = models.ImageField(upload_to='')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
