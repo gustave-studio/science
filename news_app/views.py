@@ -5,25 +5,45 @@ from .forms import NewsForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import pytz
 
-# Create your views here.
 def topfunc(request):
-  news_list = News.objects.order_by('-id')[:4]
+    """
+    トップページを表示する
+    
+    Parameters
+    ----------
+    request : WSGIRequest
+        Djangoリクエストオブジェクト
+    """
 
-  for news in news_list:
-      jst = pytz.timezone('Asia/Tokyo')
-      display_created_at = news.created_at.astimezone(jst).strftime('%Y年%m月%d日 %H:%M:%S')
-      display_updated_at = news.updated_at.astimezone(jst).strftime('%Y年%m月%d日 %H:%M:%S')
-      if display_created_at == display_updated_at:
-          news.display_name = '投稿日'
-          news.display_date = display_created_at
-      else:
-          news.display_name = '更新日'
-          news.display_date = display_updated_at
+    news_list = News.objects.order_by('-id')[:4]
 
-  videos_list = RecommendedVideo.objects.order_by('-id')[:4]
-  return render(request, 'top.html', {'news_list': news_list, 'videos_list': videos_list})
+    for news in news_list:
+        jst = pytz.timezone('Asia/Tokyo')
+        display_created_at = news.created_at.astimezone(jst).strftime('%Y年%m月%d日 %H:%M:%S')
+        display_updated_at = news.updated_at.astimezone(jst).strftime('%Y年%m月%d日 %H:%M:%S')
+
+        if display_created_at == display_updated_at:
+            news.display_name = '投稿日'
+            news.display_date = display_created_at
+        else:
+            news.display_name = '更新日'
+            news.display_date = display_updated_at
+
+    videos_list = RecommendedVideo.objects.order_by('-id')[:4]
+    return render(request, 'top.html', {'news_list': news_list, 'videos_list': videos_list})
 
 def detail_page(request, pk):
+    """
+    記事の詳細ページを表示する
+    
+    Parameters
+    ----------
+    request : WSGIRequest
+        Djangoリクエストオブジェクト
+    pk : int
+        記事のID
+    """
+
     object = get_object_or_404(News, pk=pk)
     return render(request, 'detail_page.html', {'object':object})
 
