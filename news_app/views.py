@@ -48,6 +48,15 @@ def detail_page(request, pk):
     return render(request, 'detail_page.html', {'object':object})
 
 def create_news(request):
+    """
+    記事作成ページを表示する
+    
+    Parameters
+    ----------
+    request : WSGIRequest
+        Djangoリクエストオブジェクト
+    """
+
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
@@ -62,6 +71,17 @@ def create_news(request):
     return render(request, 'create_news.html', context)
 
 def edit_news(request, pk):
+    """
+    記事編集ページを表示する
+    
+    Parameters
+    ----------
+    request : WSGIRequest
+        Djangoリクエストオブジェクト
+    pk : int
+        記事のID
+    """
+
     instance = get_object_or_404(News, pk=pk)
 
     if request.user != instance.author:
@@ -79,10 +99,20 @@ def edit_news(request, pk):
     return render(request, 'edit_news.html', context)
 
 def news_list(request):
+    """
+    記事の一覧ページを表示する
+    
+    Parameters
+    ----------
+    request : WSGIRequest
+        Djangoリクエストオブジェクト
+    """
+
     news_list = News.objects.order_by('-id')
 
     page = request.GET.get('page', 1)
     paginator = Paginator(news_list, 10)
+ 
     try:
         news = paginator.page(page)
     except PageNotAnInteger:
