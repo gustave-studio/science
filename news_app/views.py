@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import News, RecommendedVideo
 from django.views.generic import CreateView
-from .forms import NewsForm
+from .forms import NewsForm, NewsListSearchForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import pytz
 
@@ -108,9 +108,18 @@ def news_list(request):
         Djangoリクエストオブジェクト
     """
 
-    news_list = News.objects.order_by('-id')
-
+    news_list = ''
+    form = ''
     page = request.GET.get('page', 1)
+
+    if request.method == 'POST':
+        form = NewsListSearchForm(request.POST)
+        if form.is_valid():
+            search_query = form.cleaned_data['search_query']
+            news_list = News.objects.filter(title__icontains=search_query).order_by('-id')
+        else:
+            news_list = News.objects.order_by('-id')
+    
     paginator = Paginator(news_list, 10)
  
     try:
@@ -120,4 +129,4 @@ def news_list(request):
     except EmptyPage:
         news = paginator.page(paginator.num_pages)
     
-    return render(request, 'news_list.html', {'news': news})
+    return render(request, 'news_list.html', {'news': news, 'form': form})

@@ -24,3 +24,6 @@ class NewsForm(forms.ModelForm):
         labels = {'title':'タイトル', 'content':'投稿内容', 'author_display_name':'著者名', 'newsimage':'表示画像'}
 
         widgets = {'content': SummernoteWidget()}
+
+class NewsListSearchForm(forms.Form):
+    search_query = forms.CharField(max_length=100, label='')
