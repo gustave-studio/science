@@ -117,8 +117,9 @@ def news_list(request):
         if form.is_valid():
             search_query = form.cleaned_data['search_query']
             news_list = News.objects.filter(title__icontains=search_query).order_by('-id')
-        else:
-            news_list = News.objects.order_by('-id')
+    else:
+        form = NewsListSearchForm()
+        news_list = News.objects.order_by('-id')
     
     paginator = Paginator(news_list, 10)
  
