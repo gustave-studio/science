@@ -66,3 +66,17 @@ body {
     border: 1px solid rgb(250, 200, 0);
     border-radius: 3px;
 }
+
+.news_search_box {
+    display: inline-block;
+}
+
+.news_search_form {
+    float: left;
+}
+
+/* 横並びにするためのスタイル */
+.news_search_button {
+    float: left;
+    margin-left: 10px; 
+}

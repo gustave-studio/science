@@ -11,6 +11,16 @@
 <div class="container">
     <h2>ニュース記事一覧</h2>
 
+    <div class="news_search_box">
+        <form method="POST" action="{% url 'news_list' %}">{% csrf_token %}
+            <div class="news_search_form">
+                 {{ form.as_p }}
+            </div>
+            <div class="news_search_button">
+                <input type="submit" value="検索">
+            </div>
+        </form>
+    </div>
     {% for article in news %}
         <div class="news-item">
         {% if article.newsimage %}
